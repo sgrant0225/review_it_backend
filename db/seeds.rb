@@ -19,8 +19,10 @@ health = Category.create(name: 'Health')
 
 
 Review.create(
-    name: 'Mike Hammer Show', 
-    image_url: 'https://lh3.googleusercontent.com/proxy/QqsEInHfdciW4Ns6Tes_v64NjRt32JBjTMr_LFv-Fv1m6HX7JkY7rltboCA4e9VkCO6LTXS01GzKXIveBPXY8jen_lr9uyGTqlfF8sIHfJ5Q0EE5YorMHpEW_CyBcjtxDJTWEQg',
+    first_name: "Sharnell",
+    last_name: "Grant",
+    product_name: 'Mike Hammer Show', 
+    image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMISGPidLrOFcaQfZG8rI6IQU-ng4EtplRki8fuUABbJMfPvydXoKLsWNo47aGTSsy7D0&usqp=CAU',
     location: 'Las Vegas',
     feedback: 'Mike Hammer Show was super entertaining! He was funny and his magic trick was very intriguing and he kept us engaged the entire night.',
     stars: 0, 

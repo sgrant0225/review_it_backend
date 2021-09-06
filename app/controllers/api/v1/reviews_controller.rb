@@ -10,17 +10,18 @@ class Api::V1::ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
-    render json: review
+    review = Review.find(params[:id])
+    render json: ReviewSerializer.new(review)
   end
 
   # POST /reviews
   def create
     review = Review.new(review_params)
-
+    #byebug
     if review.save
-      render json: review, status: :created, location: review
+      render json: ReviewSerializer.new(review), status: :accepted
     else
-      render json: review.errors, status: :unprocessable_entity
+      render json: {errors: review.errors.full_messages}, status: 422
     end
   end
 
@@ -35,7 +36,10 @@ class Api::V1::ReviewsController < ApplicationController
 
   # DELETE /reviews/1
   def destroy
-    review.destroy
+    review = Review.find(params[:id])
+    if review.destroy
+      render json: {id: review.id}
+    end
   end
 
   private
@@ -46,6 +50,6 @@ class Api::V1::ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:name, :image_url, :location, :feedback, :stars, :category_id)
+      params.require(:review).permit(:first_name, :last_name, :product_name, :image_url, :location, :feedback, :stars, :category_id)
     end
 end
